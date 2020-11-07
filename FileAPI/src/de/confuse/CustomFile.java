@@ -55,11 +55,6 @@ public abstract class CustomFile {
 		return this.file;
 	}
 
-//	private boolean loadOnStart()
-//	{
-//		return this.load;
-//	}
-
 	public final String getName()
 	{
 		return this.name;
