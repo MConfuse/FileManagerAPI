@@ -14,6 +14,7 @@ import java.util.List;
 public class FileManager {
 
 	public static final String fileType = ".cfg";
+	private final String version = "v1.2";
 
 	// Files in here will be used to create directory's
 	private List<File> directorys = new ArrayList<File>();
@@ -22,7 +23,7 @@ public class FileManager {
 
 	public FileManager()
 	{
-		System.out.println("File Manager was created!");
+		System.out.println("File Manager " + version + " initialized!");
 	}
 
 	/**
