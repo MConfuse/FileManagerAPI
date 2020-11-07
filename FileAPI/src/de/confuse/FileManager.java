@@ -29,7 +29,8 @@ public class FileManager {
 	/**
 	 * Creates directory's using the specified File paths.
 	 * 
-	 * @param {@link File}
+	 * @param files Array of Files to be added.
+	 * 
 	 * @see #addDirectorys(List)
 	 */
 	public void addDirectorys(File... files)
@@ -46,7 +47,8 @@ public class FileManager {
 	/**
 	 * Creates directory's using the specified File paths.
 	 * 
-	 * @param List {@link File}
+	 * @param files List {@link File}.
+	 * 
 	 * @see #addDirectorys(File...)
 	 */
 	public void addDirectorys(List<File> files)
@@ -61,7 +63,7 @@ public class FileManager {
 	 * {@link #addDirectorys(File...)} method to have completed it's work or you
 	 * having already created the needed directory's
 	 * 
-	 * @param cFiles
+	 * @param cFiles Array of {@link CustomFile}s.
 	 */
 	public void addFiles(CustomFile... cFiles)
 	{
@@ -78,7 +80,7 @@ public class FileManager {
 	 * {@link #addDirectorys(File...)} method to have completed it's work or you
 	 * having already created the needed directory's
 	 * 
-	 * @param cFiles
+	 * @param cFiles List of {@link CustomFile}s.
 	 */
 	public void addFiles(List<CustomFile> cFiles)
 	{
@@ -88,7 +90,7 @@ public class FileManager {
 	/**
 	 * Loads all manually added Files.
 	 * 
-	 * @see {@link #addFiles(CustomFile...)}
+	 * @see #addFiles(CustomFile...)
 	 */
 	public void loadFiles()
 	{
@@ -110,7 +112,7 @@ public class FileManager {
 	/**
 	 * Saves all the data to the previously added Files.
 	 * 
-	 * @see {@link #addFiles(CustomFile...)}
+	 * @see #addFiles(CustomFile...)
 	 */
 	public void saveFiles()
 	{
@@ -133,8 +135,8 @@ public class FileManager {
 	 * Returns a new File with the given path and name. Usually used for
 	 * Configurations or similar Files that are created/loaded during runtime.
 	 * 
-	 * @param filePath
-	 * @param name
+	 * @param filePath String containing the path to the File.
+	 * @param name     String that names the File.
 	 * @return new File
 	 */
 	public File createTempFile(String filePath, String name)
@@ -157,7 +159,7 @@ public class FileManager {
 	 * Returns the directory with the specific name. Only works for directories
 	 * added with the {@link #addDirectorys(File...)} method!
 	 * 
-	 * @param name
+	 * @param name Name of the directory.
 	 * @return {@link File} | null
 	 */
 	public File getDirectory(String name)
@@ -173,12 +175,13 @@ public class FileManager {
 
 		return null;
 	}
-	
+
 	/**
-	 * Returns the directory with the position in the List. Only works for directories
-	 * added with the {@link #addDirectorys(File...)} method!
+	 * Returns the directory with the position in the List. Only works for
+	 * directories added with the {@link #addDirectorys(File...)} method!
 	 * 
-	 * @param index
+	 * @param index Position of the File in the List. (Should be the order they were
+	 *              added in).
 	 * @return {@link File} | null
 	 */
 	public File getDirectory(int index)
@@ -190,7 +193,7 @@ public class FileManager {
 	 * Retrieves a CustomFile using the Class it's from (F. ex.: TestFile.class).
 	 * Only searches the manually added Files!
 	 * 
-	 * @param clazz
+	 * @param clazz Class of the {@link CustomFile}.
 	 * @return CustomFile | null
 	 */
 	public CustomFile getCustomFile(final Class<? extends CustomFile> clazz)
@@ -211,7 +214,7 @@ public class FileManager {
 	 * Retrieves a CustomFile using the Files name. Only searches the manually added
 	 * Files!
 	 * 
-	 * @param name
+	 * @param name Name of the {@link CustomFile}.
 	 * @return CustomFile | null
 	 */
 	public CustomFile getCustomFile(String name)
@@ -227,7 +230,7 @@ public class FileManager {
 
 		return null;
 	}
-	
+
 	/**
 	 * Returns a List containing all Custom Files added to the ArrayList.
 	 * 
@@ -242,8 +245,8 @@ public class FileManager {
 	 * Searches for a File in a specific location. Returns a List containing all the
 	 * Files containing the name (Ignoring capitalization).
 	 * 
-	 * @param name
-	 * @param filePath
+	 * @param filePath Path to the directory.
+	 * @param name String that the Filename has to contain.
 	 * @return List {@link File}
 	 */
 	public List<File> getFiles(String filePath, String name)
@@ -251,10 +254,11 @@ public class FileManager {
 		// All files in the filePath
 		File[] folderFiles = new File(filePath).listFiles();
 		List<File> files = new ArrayList<File>();
-
+		name = name.toLowerCase();
+		
 		for (File file : folderFiles)
 		{
-			if (file.getName().contains(name))
+			if (file.getName().toLowerCase().contains(name))
 			{
 				files.add(file);
 			}
@@ -269,7 +273,7 @@ public class FileManager {
 	 * 
 	 * NOTE: Only files will be retrieved, Folders will be ignored.
 	 * 
-	 * @param filePath
+	 * @param filePath Path to the directory
 	 * @return List {@link File}
 	 */
 	public List<File> getFiles(String filePath)
@@ -291,8 +295,8 @@ public class FileManager {
 	 * Retrieves the first File out of the target directory matching the name
 	 * (Ignoring capitalization).
 	 * 
-	 * @param filePath
-	 * @param name
+	 * @param filePath Path to the directory.
+	 * @param name The Files name.
 	 * @return File | null
 	 */
 	public File getFile(String filePath, String name)
