@@ -49,7 +49,8 @@ public class Main {
 		fileManager.addFiles(file1, file2, file3);
 
 		// Example of how a Config System might look like
-		new PseudoCommand();
+		new PseudoCommandSave();
+		new PseudoCommandLoad("yeet");
 	}
 
 	public static FileManager getFileManager()

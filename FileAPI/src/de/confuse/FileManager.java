@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * A File Manager used to easily access and save Files!
  * 
- * @version 1.0
+ * @version 1.2
  * @author Confuse/xXConfusedJenni#5117
  *
  */
@@ -226,6 +226,16 @@ public class FileManager {
 
 		return null;
 	}
+	
+	/**
+	 * Returns a List containing all Custom Files added to the ArrayList.
+	 * 
+	 * @return List {@link CustomFile}
+	 */
+	public List<CustomFile> getCustomFiles()
+	{
+		return files;
+	}
 
 	/**
 	 * Searches for a File in a specific location. Returns a List containing all the
@@ -302,8 +312,7 @@ public class FileManager {
 	}
 
 	/**
-	 * Creates the directory's
-	 * 
+	 * Creates the directories added to the {@link #directorys} List
 	 */
 	private void makeDirs()
 	{

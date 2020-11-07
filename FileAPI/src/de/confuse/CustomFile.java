@@ -6,7 +6,7 @@ import java.io.IOException;
 /**
  * CustomFiles for easy File handling.
  * 
- * @version 1.0
+ * @version 1.2
  * @author Confuse/xXConfusedJenni#5117
  *
  */
