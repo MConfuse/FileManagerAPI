@@ -21,6 +21,9 @@ public class FileManager {
 	// Files need to be added here to keep track of the Files
 	private List<CustomFile> files = new ArrayList<CustomFile>();
 
+	/**
+	 * Nothing needed but a new Instance on startup.
+	 */
 	public FileManager()
 	{
 		System.out.println("File Manager " + version + " initialized!");
@@ -38,10 +41,9 @@ public class FileManager {
 		for (File file : files)
 		{
 			directorys.add(file);
-
-			makeDirs();
 		}
 
+		makeDirs();
 	}
 
 	/**
